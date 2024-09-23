@@ -1,0 +1,24 @@
+---
+version: '3.3'
+services:
+  komga:
+    image: gotson/komga
+    container_name: komga
+    volumes:
+      - type: bind
+        source: /home/atort88/docker/kavita/config
+        target: /config
+      - type: bind
+        source: /media/comics_nas/Comics/kavita_comic_db
+        target: /data
+      - type: bind
+        source: /etc/timezone #alternatively you can use a TZ environment variable, like TZ=Europe/London
+        target: /etc/timezone
+        read_only: true
+    ports:
+      - "192.168.0.208:25600:25600"
+    user: "1000:1000"
+    # remove the whole environment section if you don't need it
+    environment:
+      - <ENV_VAR>=<extra configuration>
+    restart: unless-stopped
