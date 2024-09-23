@@ -1,0 +1,16 @@
+---
+version: "3"
+services:
+  yacreaderlibrary-server-docker:
+    container_name: YACReaderLibraryServer
+    image: xthursdayx/yacreaderlibrary-server-docker
+    environment:
+      - PUID=99
+      - PGID=100
+      - TZ=America/New_York
+    volumes:
+      - /home/atort88/docker/yacreader/config:/config
+      - /media/comics_nas/Comics/kavita_comic_db:/comics
+    ports:
+      - "192.168.0.208:4545:8080"
+    restart: unless-stopped
