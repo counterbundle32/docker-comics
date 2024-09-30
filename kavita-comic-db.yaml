@@ -8,7 +8,7 @@ services:
       - PGID=1000
       - TZ=America/New_York
     volumes:
-      - /home/atort88/docker/kavita/config:/config
+      - /home/atort88/docker/appdata/kavita/config:/config
       - /media/comics_nas/Comics/kavita_comic_db:/comics
     ports:
       - "192.168.0.208:5050:5000"
